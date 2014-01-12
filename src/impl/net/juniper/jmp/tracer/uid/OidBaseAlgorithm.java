@@ -47,7 +47,6 @@ public class OidBaseAlgorithm {
 				newCode = MIN_CODE;
 				carryUp = true;
 			}
-			// 跳过数字与大写字母之间的其他字符：
 			if (newCode == 58) {
 				newCode = 65;
 			}
