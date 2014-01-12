@@ -7,14 +7,14 @@ package net.juniper.jmp.tracer.common;
 public class MonitorConstants {
 	public static String SHARE_BASE_DIR;
 	static{
-		String osName = System.getProperty("os.name");
-		if(osName.toLowerCase().indexOf("windows") != -1){
+		if(isWindows()){
 			SHARE_BASE_DIR = "c:/monitor/";
 		}
 		else{
 			SHARE_BASE_DIR = "/var/tmp/monitor/";
 		}
 	}
+
 	public static final String PMC_LOG_DIR = SHARE_BASE_DIR + "pmclog";
 	public static final String PMC_METHOD_LOG = "pmc_method.log";
 	public static final String PMC_STAGE_LOG = "pmc_stage.log";
@@ -44,4 +44,9 @@ public class MonitorConstants {
 	public static final String LOG_SEGMENT = "#,#";
 	
 	public static final String DEFAULT_LISTEN_PORT = "7878";
+	
+	public static boolean isWindows() {
+		String osName = System.getProperty("os.name");
+		return osName.toLowerCase().indexOf("windows") != -1;
+	}
 }
